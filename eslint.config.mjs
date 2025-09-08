@@ -30,7 +30,7 @@ const eslintConfig = [
   },
 
   // Next.js 기본 설정
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
 
   // 일반 파일들에 대한 설정
   {
