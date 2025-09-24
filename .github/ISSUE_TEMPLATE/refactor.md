@@ -1,8 +1,8 @@
 ---
-name: "기능"
-about: 기능 이슈 템플릿입니다.
-title: "[feat]"
-labels: "Feat"
+name: "리팩토링"
+about: 리팩토링 이슈 템플릿입니다.
+title: "[refactor]"
+labels: "Refactor"
 assignees: ""
 ---
 
