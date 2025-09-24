@@ -1,5 +1,5 @@
 ---
-name: "문서"
+name: "문서화"
 about: 문서 이슈 템플릿입니다.
 title: "[doc]"
 labels: "Doc"

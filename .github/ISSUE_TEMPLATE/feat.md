@@ -1,5 +1,5 @@
 ---
-name: "기능"
+name: "기능 구현"
 about: 기능 이슈 템플릿입니다.
 title: "[feat]"
 labels: "Feat"

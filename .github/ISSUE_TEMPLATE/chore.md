@@ -1,5 +1,5 @@
 ---
-name: "기타"
+name: "기타 설정"
 about: 기타 이슈 템플릿입니다.
 title: "[chore]"
 labels: "Chore"

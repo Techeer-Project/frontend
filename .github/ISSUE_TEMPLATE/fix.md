@@ -1,5 +1,5 @@
 ---
-name: "수정"
+name: "수정 이슈"
 about: 수정 이슈 템플릿입니다.
 title: "[fix]"
 labels: "Fix"
