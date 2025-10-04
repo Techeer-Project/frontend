@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 
-// 실제로는 DB에서 가져올 데이터 (목업 데이터)
+// 더미 데이터
 async function getChatRoomDetails(roomId: string) {
   return {
     userName: "게이머김씨",
-    productImage: "/images/product-switch.jpg",
+    productImage: "/images/product_1.jpeg",
     productName: "닌텐도 스위치 OLED 화이트",
     price: 320000,
   };
@@ -127,7 +127,7 @@ export default async function ChatRoomPage({
           >
             {msg.sender === "other" && (
               <Image
-                src="/images/avatar-other.png"
+                src="/images/product_1.jpeg"
                 alt="상대방 프로필"
                 width={32}
                 height={32}

@@ -1,24 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
 
-// 실제로는 DB에서 가져올 채팅방 목록 데이터 (목업 데이터)
+// 더미 데이터
 async function getChatRooms() {
   return [
     {
       id: "1",
-      userName: "김철수",
-      productImage: "/images/product_1", // public/images/ 폴더에 이미지 필요
-      lastMessage: "네, 내일 2시에 역삼역에서 만나요!",
-      productName: "아이폰 14 Pro 딥퍼플",
-      price: 850000,
-      timestamp: "오후 3:24",
-      unreadCount: 2,
-      isOnline: true,
+      userName: "김철수", // 상대방 이름 혹은 닉네임
+      productImage: "/images/product_1.jpeg", // 상품 이미지
+      lastMessage: "네, 내일 2시에 역삼역에서 만나요!", // 마지막 메시지 내용 (길어지면 자름)
+      productName: "아이폰 14 Pro 딥퍼플", // 제품명
+      price: 850000, // 상품 가격
+      timestamp: "오후 3:24", // 마지막 메시지 시각
+      unreadCount: 2, // 안 읽은 메시지 수
+      isOnline: true, // 상대방 상태 (온라인/오프라인)
     },
     {
       id: "2",
       userName: "박영희",
-      productImage: "/images/product_2",
+      productImage: "/images/product_2.jpeg",
       lastMessage: "사진 더 보내주실 수 있나요?",
       productName: "맥북 에어 M2 실버",
       price: 1200000,
@@ -29,7 +29,7 @@ async function getChatRooms() {
     {
       id: "3",
       userName: "이민수",
-      productImage: "/images/product_3",
+      productImage: "/images/product_3.jpg",
       lastMessage: "경매 참여했습니다! 💪",
       productName: "삼성 갤럭시 워치5",
       price: 180000,
