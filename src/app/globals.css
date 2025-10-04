@@ -2,21 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html,
 body {
-  max-width: 100vw;
   overflow-x: hidden;
 }
 
@@ -28,19 +15,111 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.screen::-webkit-scrollbar {
+  width: 10px;
+}
+.screen::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+/* 공통 앱 셸 변수 */
+:root {
+  --header-h: 56px; /* 헤더 높이 */
+  --bottom-h: 64px; /* 바텀 높이 */
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer components {
+  /* 기기 폭 중앙 정렬 + 전체 뷰 높이 */
+  .shell {
+    @apply mx-auto w-full max-w-[600px] min-h-[100svh] flex flex-col;
+  }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  /* 메인: 바텀과 겹치지 않도록 패딩 */
+  .main {
+    @apply flex-1 bg-white;
+    padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 56px));
+    padding-bottom: calc(
+      env(safe-area-inset-bottom, 0px) + var(--bottom-h, 64px)
+    );
+  }
+
+  /* ================================================== Header (상단 고정 영역) ================================================== */
+  .header {
+    @apply sticky top-0 z-30 border-b
+           bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80;
+    height: calc(env(safe-area-inset-top, 0px) + var(--header-h, 56px));
+  }
+  .header-safe {
+    height: env(safe-area-inset-top, 0px);
+  }
+  .header-inner {
+    @apply mx-auto w-full max-w-[600px] px-3 flex items-center;
+    height: var(--header-h, 56px);
+  }
+
+  /* 헤더 3분할 그리드 */
+  .header-grid {
+    @apply grid grid-cols-3 items-center w-full;
+  }
+  .header-left {
+    @apply flex items-center justify-start gap-1;
+  }
+  .header-center {
+    @apply flex items-center justify-center;
+  }
+  .header-right {
+    @apply flex items-center justify-end gap-1;
+  }
+
+  .header-title {
+    @apply truncate text-base font-semibold;
+  }
+  .header-btn {
+    @apply flex h-10 w-10 items-center justify-center text-lg text-gray-700;
+  }
+
+  /* ============================================ Bottom Navigation (하단 고정 영역) ============================================ */
+  .bottom {
+    @apply sticky bottom-0 z-30 border-t
+           bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80;
+    height: calc(env(safe-area-inset-bottom, 0px) + var(--bottom-h, 64px));
+  }
+  .bottom-safe {
+    height: env(safe-area-inset-bottom, 0px);
+  }
+  .bottom-inner {
+    @apply mx-auto w-full max-w-[600px] px-2;
+    height: var(--bottom-h, 64px);
+  }
+
+  /* 네비게이션 그리드 */
+  .bottom-nav {
+    @apply grid h-full items-center text-center;
+  }
+  .bottom-cols-3 {
+    @apply grid-cols-3;
+  }
+  .bottom-cols-4 {
+    @apply grid-cols-4;
+  }
+  .bottom-cols-5 {
+    @apply grid-cols-5;
+  }
+
+  /* 아이템/아이콘/라벨 */
+  .bottom-item {
+    @apply flex flex-col items-center justify-center gap-1;
+  }
+  .bottom-icon {
+    @apply text-[20px] leading-none;
+  }
+  .bottom-label {
+    @apply text-[12px];
+  }
+  .bottom-active {
+    @apply font-semibold;
+  }
+  .bottom-inactive {
+    @apply text-gray-700;
   }
 }
