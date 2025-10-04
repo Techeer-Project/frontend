@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { SearchOutlined } from "@ant-design/icons";
 
 // 더미 데이터
 async function getChatRooms() {
@@ -46,12 +47,19 @@ export default async function ChatListPage() {
   return (
     <div className="flex h-full flex-col bg-white">
       {/* 상단 검색창 */}
-      <header className="sticky top-0 z-10 p-4">
-        <input
-          type="text"
-          placeholder="채팅방 검색"
-          className="w-full rounded-md border border-gray-200 bg-gray-100 px-4 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-        />
+      <header className="sticky top-0 z-10 bg-white p-4">
+        {/* 아이콘이 input에 감싸져있는 것처럼 보이게 하기 위해 relative 속성 사용 */}
+        <div className="relative flex w-full items-center">
+          {/* 아이콘에 absolute : 부모 div 기준으로 위치 설정 */}
+          {/* left-3: 왼쪽에서 조금 떼고 */}
+          <SearchOutlined className="absolute left-3 text-gray-400" />
+          <input
+            type="text"
+            placeholder="채팅방 검색"
+            // 아이콘이 들어갈 공간을 확보하기 위해 왼쪽 패딩(pl-10)을 줍니다.
+            className="w-full rounded-md border border-gray-200 bg-gray-100 py-2 pl-10 pr-4 text-sm focus:outline-none "
+          />
+        </div>
       </header>
 
       {/* 채팅 목록 */}
